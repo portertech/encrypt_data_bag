@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["portertech@gmail.com"]
   spec.summary       = "CLI tool for encrypting Chef data bag items"
   spec.description   = "CLI tool for encrypting Chef data bag items"
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/portertech/encrypt_data_bag"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
