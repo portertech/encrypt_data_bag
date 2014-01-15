@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+
+require "rubygems"
+require "optparse"
+require "encrypt_data_bag"
+
+config = Hash.new
+
+OptionParser.new { |options|
+  options.on("-h", "--help", "Display this message") do
+    puts options
+    exit
+  end
+  options.on("-v", "--version", "Display version") do
+    puts EncryptDataBag::VERSION
+    exit
+  end
+  options.on("-s", "--secret-file FILE", "Secret key FILE") do |file|
+    config[:secret_file] = file
+  end
+  options.on("-i", "--input-file FILE", "Input FILE (plain-text data bag item)") do |file|
+    config[:input_file] = file
+  end
+  options.on("-o", "--output-file FILE", "Output FILE (encrypted data bag item)") do |file|
+    config[:output_file] = file
+  end
+}.parse!
+
+raise "You must provide a Secret key FILE (-s)" unless config[:secret_file]
+raise "You must provide an input FILE (-i)" unless config[:input_file]
+raise "You must provide an output FILE (-o)" unless config[:output_file]
+
+EncryptDataBag.from_file(config[:secret_file], config[:input_file], config[:output_file])
