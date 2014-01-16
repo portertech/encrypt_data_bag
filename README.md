@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/portertech/encrypt_data_bag.png)](https://travis-ci.org/portertech/encrypt_data_bag)
+
 ## Installation
 
 ```
