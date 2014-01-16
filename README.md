@@ -9,6 +9,14 @@ $ gem install encrypt_data_bag
 ## Usage
 
 ```
+$ encrypt_data_bag -h
+Usage: encrypt_data_bag [options]
+    -h, --help                       Display this message
+    -v, --version                    Display version
+    -s, --secret-file FILE           Secret key FILE
+    -i, --input-file FILE            Input FILE (plain-text data bag item)
+    -o, --output-file FILE           Output FILE (encrypted data bag item)
+
 $ encrypt_data_bag -s ~/.chef/encrypted_data_bag_secret -i plain_text_item.rb -o encrypted_item.json
 ```
 
