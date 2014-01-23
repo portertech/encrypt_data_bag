@@ -16,6 +16,13 @@ task :test do
   system(command.join(" "))
   puts IO.read("test/tmp/staging.json")
   puts IO.read("test/tmp/production.rb")
+  command = ["bundle exec ./bin/encrypt_data_bag"]
+  command << "-s test/assets/encrypted_data_bag_secret"
+  command << "-i test/assets/data_bags/aws/development.json"
+  command << "-o test/tmp/development.rb"
+  command << "-d"
+  system(command.join(" "))
+  puts IO.read("test/tmp/development.rb")
 end
 
 task :default => :test

@@ -1,0 +1,27 @@
+{
+  "id": "development",
+  "aws_access_key_id": {
+    "encrypted_data": "OrX9/3urkoVg90nNBKZo9Yli/L62xugOcnZBUeWmHAY=\n",
+    "iv": "0PkVPxoHU8ABsyvb7LL5gw==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "aws_secret_access_key": {
+    "encrypted_data": "iFG6wvUEwQAH5cSNdXolHwWZac4yt3iyDrIuIq20QlA=\n",
+    "iv": "y5VDMAh6+XZMBR/tnr8kqQ==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "aws_x509_certificate": {
+    "encrypted_data": "8wkLFODJV6CLMnS3hS0H75I4nEAM3PkVtfG/LIUS9NI=\n",
+    "iv": "tOa9uKSYSf71Okh6Jipeew==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "aws_private_key": {
+    "encrypted_data": "xn9dVwhYGpk7C4sc7LmVBR6O1HZwlpr2gv6UUtFkpoQ=\n",
+    "iv": "T5Fp7pTJSrlftmauY6Baeg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  }
+}

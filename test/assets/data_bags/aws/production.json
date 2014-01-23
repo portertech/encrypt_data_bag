@@ -1,7 +1,7 @@
 {
-    "id": "staging",
+    "id": "production",
     "aws_access_key_id": "foo",
     "aws_secret_access_key": "bar",
-    "aws_x509_certificate": "foo",
-    "aws_private_key": "bar"
+    "aws_x509_certificate": "foo\n",
+    "aws_private_key": "bar\n"
 }

@@ -24,10 +24,17 @@ OptionParser.new { |options|
   options.on("-o", "--output-file FILE", "Output FILE (encrypted data bag item)") do |file|
     config[:output_file] = file
   end
+  options.on("-d", "--decrypt", "Decrypt the data bag item") do
+    config[:decrypt] = true
+  end
 }.parse!
 
 raise "You must provide a Secret key FILE (-s)" unless config[:secret_file]
 raise "You must provide an input FILE (-i)" unless config[:input_file]
 raise "You must provide an output FILE (-o)" unless config[:output_file]
 
-EncryptDataBag.from_file(config[:secret_file], config[:input_file], config[:output_file])
+EncryptDataBag.from_file(
+                         config[:secret_file],
+                         config[:input_file],
+                         config[:output_file],
+                         :decrypt => config[:decrypt])

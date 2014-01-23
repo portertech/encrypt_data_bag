@@ -7,17 +7,21 @@ module EncryptDataBag
       File.extname(file) == ".json"
     end
 
-    def from_file(secret_file, input_file, output_file)
+    def from_file(secret_file, input_file, output_file, options={})
       secret = Chef::EncryptedDataBagItem.load_secret(secret_file)
-      raw_item = IO.read(input_file)
-      item = is_json_file?(input_file) ? JSON.parse(raw_item) : eval(raw_item)
+      input = IO.read(input_file)
+      item = is_json_file?(input_file) ? JSON.parse(input) : eval(input)
       item = Hash[item.map { |k, v| [k.to_s, v] }]
-      encrypted_item = Chef::EncryptedDataBagItem.encrypt_data_bag_item(item, secret)
+      output = if options[:decrypt]
+        Chef::EncryptedDataBagItem.new(item, secret).to_hash
+      else
+        Chef::EncryptedDataBagItem.encrypt_data_bag_item(item, secret)
+      end
       File.open(output_file, "w") do |file|
         if is_json_file?(output_file)
-          file.print(JSON.pretty_generate(encrypted_item))
+          file.print(JSON.pretty_generate(output))
         else
-          file.write(encrypted_item.pretty_inspect)
+          file.write(output.pretty_inspect)
         end
       end
     end
